@@ -6,7 +6,6 @@ import {
   addTask,
   updateTask,
 } from "./Redux/Store/features/taskslice";
-import { AppState } from "./Redux/Store/store";
 import { Task, TasksState } from "./Redux/Store/features/taskslice";
 
 interface Props {
@@ -55,6 +54,7 @@ export default function Edittodo(props: Props) {
             </button>
           </div>
           <input
+            type="text"
             value={Text}
             onChange={(e) => {
               setText(e.target.value);
@@ -66,7 +66,7 @@ export default function Edittodo(props: Props) {
               dispatch(updateTask({ id: props.id, text: Text }));
               props.close();
             }}
-            className="w-[10%] rounded-md bg-green-600 text-white self-center mb-5"
+            className="w-[10%] Done rounded-md bg-green-600 text-white self-center mb-5"
           >
             Done
           </button>

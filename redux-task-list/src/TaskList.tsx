@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTask, deleteTask } from "./Redux/Store/features/taskslice";
-import { AppState } from "./Redux/Store/store";
 import { Task, TasksState } from "./Redux/Store/features/taskslice";
 import Addtodo from "./add-task";
 import Edittodo from "./Edit-task";
@@ -26,9 +25,9 @@ export function TaskList() {
         <div className="w-3/4 flex justify-center mt-4">
           <Addtodo />
         </div>
-        <div className="w-3/4 mt-3">
+        <div className="w-3/4 mt-3 TaskList">
           {tasks?.map((task) => (
-            <div className="flex justify-between mb-4">
+            <div className="flex justify-between mb-4 TaskList ">
               {opened ? (
                 <Edittodo
                   opened={opened}
@@ -49,11 +48,12 @@ export function TaskList() {
                     checked={task.completed}
                     // dispatch the marking the task as done action
                     onChange={() => dispatch(toggleTask(task.id))}
-                    className="w-7 h-7 justify-center items-center text-xl text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-7 h-7 completed justify-center items-center text-xl text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                 </div>
                 <div className="">
                   <button
+                    className="delete"
                     // dispatch the delete action to redux store
                     onClick={() => dispatch(deleteTask(task.id))}
                   >
@@ -64,7 +64,7 @@ export function TaskList() {
                       xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink"
                     >
-                      <title>delete [#1487]</title>
+                      <title>delete</title>
                       <desc>Created with Sketch.</desc>
                       <defs></defs>
                       <g
@@ -95,6 +95,7 @@ export function TaskList() {
                 </div>
                 <div className="">
                   <button
+                    className="edit"
                     onClick={() => {
                       setOpened(true);
                     }}
