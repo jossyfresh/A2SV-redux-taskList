@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import tasksReducer from './features/taskslice'
-import { combineReducers } from 'redux';
 
 declare global {
   interface Window {
     store: typeof store;
   }
 }
+
 
 
 export const store = configureStore({

@@ -1,16 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  toggleTask,
-  deleteTask,
-  addTask,
-  updateTask,
-} from "./Redux/Store/features/taskslice";
-import { Task, TasksState } from "./Redux/Store/features/taskslice";
+import { useDispatch } from "react-redux";
+import { updateTask } from "./Redux/Store/features/taskslice";
 
 interface Props {
   opened: boolean;
-  id: string;
+  id: number;
   text: string;
   close: () => void;
 }

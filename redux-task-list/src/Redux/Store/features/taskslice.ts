@@ -1,7 +1,7 @@
-import { compose, createSlice } from '@reduxjs/toolkit'
+import {  createSlice } from '@reduxjs/toolkit'
 
 export interface Task {
-  id: string
+  id: number
   text: string
   completed: boolean 
 }
